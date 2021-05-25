@@ -1,0 +1,28 @@
+.app {
+}
+
+.titleCon {
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+}
+
+.title {
+  font-family: Rajdhani;
+  font-size: 100px;
+  color: rgb(66, 11, 11);
+  letter-spacing: 30px;
+  animation: textflicker .01s alternate infinite;
+  margin: auto;
+  user-select: none;
+  cursor: none;
+}
+
+@keyframes textflicker {
+  from {
+    text-shadow: 1px 0 0 #632828, -2px 0 0 #8b0000;
+  }
+  to {
+    text-shadow: 2px 0.5px 2px #8b0000, -1px -0.5px 2px #632828;
+  }
+}
