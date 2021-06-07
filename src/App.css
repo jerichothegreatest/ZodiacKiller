@@ -1,28 +1,376 @@
+::-webkit-scrollbar {
+  width: 0;
+}
+
 .app {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.homeBG {
+  background-image: url('./resources/symbol.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 35%;
+  background-color: rgb(3,3,3);
+  animation: intro 3s ease-in-out;
 }
 
 .titleCon {
+  position: relative;
   height: 100vh;
-  background-color: rgb(0, 0, 0);
+  width: 100%;
   display: flex;
 }
 
 .title {
-  font-family: Rajdhani;
-  font-size: 100px;
-  color: rgb(66, 11, 11);
-  letter-spacing: 30px;
-  animation: textflicker .01s alternate infinite;
+  white-space: nowrap;
   margin: auto;
   user-select: none;
-  cursor: none;
+  cursor: default;
+  font-family: Rajdhani;
+  font-size: 50px;
+  color: rgb(36, 3, 3);
+  animation: textflicker .01s alternate infinite;
+  letter-spacing: 50px;
+  transition: 2s ease-in-out;
+}
+
+.tabCon {
+  height: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.bubble {
+  height: 60px;
+  margin: 0 auto;
+  font-size: 32px;
+  color:rgb(82, 22, 22);
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 8px;
+  z-index: 12;
+}
+
+.mainCon {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.displayCon {
+  margin: 300px auto;
+  margin-bottom: 400px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.display {
+  width: 25%;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+  overflow: hidden; 
+  position: relative;
+  cursor: pointer;
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  font-family: Rajdhani;
+  color:rgb(36, 3, 3);
+  transition: .2s ease-in-out;
+}
+
+.display:hover {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: 20px;
+  font-size: 30px;
+}
+
+.aos-animate {
+  animation: textflickerB .01s 1s;
+}
+
+.historyCon {
+  display: flex;
+  flex-direction: column;
+  animation: intro 3s ease-in-out;
+}
+
+.historyTitle {
+  height: 100vh;
+  background-color: rgb(3,3,3);
+  position: relative;
+  width: 100%;
+}
+
+#foglayer_01, #foglayer_02, #foglayer_03 {
+  height: 100%;
+  position: absolute;
+  width: 200%;
+}
+
+#foglayer_01 .image01, #foglayer_01 .image02,
+#foglayer_02 .image01, #foglayer_02 .image02,
+#foglayer_03 .image01, #foglayer_03 .image02 {
+  float: left;
+  height: 100%;
+  width: 50%;
+}
+
+#foglayer_01 {
+  -webkit-animation: foglayer_01_opacity 50s linear infinite, foglayer_moveme 100s linear infinite;
+  -moz-animation: foglayer_01_opacity 50s linear infinite, foglayer_moveme 100s linear infinite;
+  animation: foglayer_01_opacity 50s linear infinite, foglayer_moveme 100s linear infinite;
+  z-index: 1;
+}
+#foglayer_02, #foglayer_03 {
+  -webkit-animation: foglayer_02_opacity 80s linear infinite, foglayer_moveme 60s linear infinite;
+  -moz-animation: foglayer_02_opacity 80s linear infinite, foglayer_moveme 60s linear infinite;
+  animation: foglayer_02_opacity 80s linear infinite, foglayer_moveme 60s linear infinite;
+  z-index: 3;
+}
+
+#foglayer_01 .image01, #foglayer_01 .image02 {
+  background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png") center center/cover no-repeat transparent;
+}
+#foglayer_02 .image01, #foglayer_02 .image02,
+#foglayer_03 .image01, #foglayer_03 .image02{
+  background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog2.png") center center/cover no-repeat transparent;
+}
+
+.historyLabel{
+  font-size: 36px;
+  top: 75px;
+  left: 200px;
+  font-weight: 300;
+  position: absolute;
+  color: rgb(150, 0, 0);
+  z-index: 5;
+  letter-spacing: 20px;
+  user-select: none;
+  cursor: default;
+}
+
+.historyReturn{
+  font-size: 20px;
+  bottom: 75px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  font-weight: 400;
+  position: absolute;
+  color: rgb(150, 0, 0);
+  z-index: 5;
+  letter-spacing: 10px;
+  user-select: none;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.historyReturn:hover {
+  opacity: .6;
+}
+
+.historyMain {
+  background-color: rgba(0,0,0,.9 );
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 50px;
+  margin: auto;
+  height: 600px;
+  width: 60%;
+  z-index: 5;
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 300;
+  overflow-y: auto;
+}
+
+.historyText {
+  margin: 0 15%;
+  margin-top: 25px;
+}
+
+.historyImg {
+  margin: 0 15%;
+  margin-top: 25px;
+}
+
+@keyframes textflickerB {
+  from {
+    font-family: Rajdhani;
+  }
+  to {
+  }
+}
+
+@keyframes textflickerC {
+  0% {
+    text-shadow: 1px 0 0 #331515, -2px 0 0 #531d1d;
+    font-family: arial;
+  } 20% {
+    text-shadow: 2px 0.5px 2px #531d1d, -1px -0.5px 2px #331515;
+  } 40% {
+    text-shadow: 1px 0 0 #331515, -2px 0 0 #531d1d;
+    font-family: Rajdhani;
+  } 60% {
+    text-shadow: 2px 0.5px 2px #531d1d, -1px -0.5px 2px #331515;
+  } 80% {
+    text-shadow: 1px 0 0 #331515, -2px 0 0 #531d1d;
+    font-family: arial
+  } 100% {
+    text-shadow: 2px 0.5px 2px #531d1d, -1px -0.5px 2px #331515;
+  }
 }
 
 @keyframes textflicker {
   from {
-    text-shadow: 1px 0 0 #632828, -2px 0 0 #8b0000;
+    text-shadow: 1px 0 0 #331515, -2px 0 0 #531d1d;
   }
   to {
-    text-shadow: 2px 0.5px 2px #8b0000, -1px -0.5px 2px #632828;
+    text-shadow: 2px 0.5px 2px #531d1d, -1px -0.5px 2px #331515;
   }
+}
+
+@keyframes intro {
+  from {
+    filter:blur(20px);
+  }
+  to {
+    filter:blur(0px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  } 50% {
+    transform: perspective(120px) rotateX(-90deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-90deg) rotateY(0deg);
+    font-family: arial;
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+  } 
+}
+
+@-webkit-keyframes foglayer_01_opacity {
+  0% { opacity: .1; }
+  22% { opacity: .5; }
+  40% { opacity: .28; }
+  58% { opacity: .4; }
+  80% { opacity: .16; }
+  100% { opacity: .1; }
+}
+@-moz-keyframes foglayer_01_opacity {
+  0% { opacity: .1; }
+  22% { opacity: .5; }
+  40% { opacity: .28; }
+  58% { opacity: .4; }
+  80% { opacity: .16; }
+  100% { opacity: .1; }
+}
+@-o-keyframes foglayer_01_opacity {
+  0% { opacity: .1; }
+  22% { opacity: .5; }
+  40% { opacity: .28; }
+  58% { opacity: .4; }
+  80% { opacity: .16; }
+  100% { opacity: .1; }
+}
+@keyframes foglayer_01_opacity {
+  0% { opacity: .1; }
+  22% { opacity: .5; }
+  40% { opacity: .28; }
+  58% { opacity: .4; }
+  80% { opacity: .16; }
+  100% { opacity: .1; }
+}
+/* ---------- Keyframe Layer 2 ---------- */
+@-webkit-keyframes foglayer_02_opacity {
+  0% { opacity: .5; }
+  25% { opacity: .2; }
+  50% { opacity: .1; }
+  80% { opacity: .3; }
+  100% { opacity: .5; }
+}
+@-moz-keyframes foglayer_02_opacity {
+  0% { opacity: .5; }
+  25% { opacity: .2; }
+  50% { opacity: .1; }
+  80% { opacity: .3; }
+  100% { opacity: .5; }
+}
+@-o-keyframes foglayer_02_opacity {
+  0% { opacity: .5; }
+  25% { opacity: .2; }
+  50% { opacity: .1; }
+  80% { opacity: .3; }
+  100% { opacity: .5; }
+}
+@keyframes foglayer_02_opacity {
+  0% { opacity: .5; }
+  25% { opacity: .2; }
+  50% { opacity: .1; }
+  80% { opacity: .3; }
+  100% { opacity: .5; }
+}
+/* ---------- Keyframe Layer 3 ---------- */
+@-webkit-keyframes foglayer_03_opacity {
+  0% { opacity: .8 }
+  27% { opacity: .2; }
+  52% { opacity: .6; }
+  68% { opacity: .3; }
+  100% { opacity: .8; }
+}
+@-moz-keyframes foglayer_03_opacity {
+  0% { opacity: .8 }
+  27% { opacity: .2; }
+  52% { opacity: .6; }
+  68% { opacity: .3; }
+  100% { opacity: .8; }
+}
+@-o-keyframes foglayer_03_opacity {
+  0% { opacity: .8 }
+  27% { opacity: .2; }
+  52% { opacity: .6; }
+  68% { opacity: .3; }
+  100% { opacity: .8; }
+}
+@keyframes foglayer_03_opacity {
+  0% { opacity: .8; }
+  27% { opacity: .2; }
+  52% { opacity: .6; }
+  68% { opacity: .3; }
+  100% { opacity: .8; }
+}
+/* ---------- Keyframe moveMe ---------- */
+@-webkit-keyframes foglayer_moveme {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+@-moz-keyframes foglayer_moveme {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+@-o-keyframes foglayer_moveme {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+@keyframes foglayer_moveme {
+  0% { left: 0; }
+  100% { left: -100%; }
 }
