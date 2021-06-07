@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import BackgroundMusic from './components/BackgroundMusic';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import victims from './resources/victims.jpg'
@@ -15,8 +14,6 @@ import shirt from './resources/shirt.png'
 import retard from './resources/retard.jpg'
 
 function App() {
-  const [isPlaying, setPlaying] = useState(false);
-  const [timed, setTimed] = useState(false)
   const [render, setRender] = useState("home")
   const [change, setChange] = useState(true);
   const [loading, setLoading] = useState(true);
@@ -46,20 +43,8 @@ function App() {
    }
   }, [render])
 
-  useEffect(() => {
-    if (isPlaying) {
-      <BackgroundMusic isPlaying={isPlaying}/>
-    }
-  }, [isPlaying])
-
-  useEffect(() => {
-    if(timed) {
-      setTimeout(() => {setPlaying(true)}, Math.random() * 10000)
-    }
-  }, [timed])
-
   let content = (
-    <div className="app" onClick={() => timed ? null : null} >
+    <div className="app">
       {render === "home" ?
         <div className="homeBG">
         <div className="titleCon">
